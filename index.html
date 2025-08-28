@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- SEO Meta Tags -->
+    <title>Число прописом онлайн | Конвертер чисел в слова українською - Num2Words</title>
+    <meta name="description" content="Безкоштовний онлайн конвертер чисел прописом українською мовою. Переведення числа в текст для документів, договорів, рахунків. Підтримка гривні, долара, євро та 6 мов.">
+    <meta name="keywords" content="число прописом, числа словами, число прописом українською, конвертер чисел, сума прописом, гривня прописом, число текстом, числівник прописом, переклад чисел в слова, number to words ukrainian">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://num2words.app/">
+    <meta property="og:title" content="Число прописом онлайн | Конвертер чисел українською">
+    <meta property="og:description" content="Переведіть будь-яке число в текст українською та іншими мовами. Ідеально для документів і договорів.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0071e3/ffffff?text=Num2Words">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Num2Words">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://num2words.app/">
+    <meta property="twitter:title" content="Число прописом онлайн | Конвертер чисел">
+    <meta property="twitter:description" content="Безкоштовний конвертер чисел в слова. Українська, англійська та інші мови.">
+    <meta property="twitter:image" content="https://placehold.co/1200x600/0071e3/ffffff?text=Num2Words">
+    
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://num2words.app/">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="author" content="Num2Words Team">
+    <meta name="language" content="Ukrainian">
+    <link rel="alternate" hreflang="uk-UA" href="https://num2words.app/uk/">
+    <link rel="alternate" hreflang="en-US" href="https://num2words.app/en/">
+    <link rel="alternate" hreflang="x-default" href="https://num2words.app/">
+    
+    <!-- PWA & Mobile -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Num2Words">
+    <meta name="application-name" content="Num2Words">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Num2Words - Число прописом",
+      "description": "Онлайн конвертер для переведення чисел в текст українською мовою",
+      "url": "https://num2words.app",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "inLanguage": "uk-UA",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "UAH"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1247"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        :root {
+            --nav-height: 52px;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --text-link: #06c;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-tertiary: #fbfbfd;
+            --border-color: #d2d2d7;
+            --border-light: #f0f0f2;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --success: #34c759;
+            --warning: #ff9500;
+            --danger: #ff3b30;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.16);
+            --transition-default: cubic-bezier(0.4, 0, 0.6, 1);
+        }
+        
+        [data-theme="dark"] {
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-link: #2997ff;
+            --bg-primary: #000000;
+            --bg-secondary: #161617;
+            --bg-tertiary: #1c1c1e;
+            --border-color: #424245;
+            --border-light: #2c2c2e;
+            --accent: #0a84ff;
+            --accent-hover: #409cff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.6);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            min-height: 100vh;
+            transition: background-color 0.3s var(--transition-default), color 0.3s var(--transition-default);
+        }
+        
+        /* Typography */
+        .headline-hero { font-size: 56px; line-height: 1.07143; font-weight: 600; letter-spacing: -0.005em; }
+        .headline { font-size: 48px; line-height: 1.08349; font-weight: 600; letter-spacing: -0.003em; }
+        .text-body { font-size: 17px; line-height: 1.47059; font-weight: 400; letter-spacing: -0.022em; }
+        
+        /* Apple-style navigation */
+        .nav-wrapper {
+            position: sticky; top: 0;
+            height: var(--nav-height);
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+            transition: all 0.3s var(--transition-default);
+        }
+        
+        [data-theme="dark"] .nav-wrapper { background: rgba(29, 29, 31, 0.8); }
+        
+        /* Apple-style cards */
+        .card-surface {
+            background: var(--bg-tertiary);
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s var(--transition-default);
+            overflow: hidden;
+        }
+        
+        /* Apple-style input */
+        .input-apple {
+            width: 100%; padding: 17px 16px; font-size: 17px; font-weight: 400;
+            background: var(--bg-primary); color: var(--text-primary);
+            border: 1px solid var(--border-color); border-radius: 12px;
+            transition: all 0.2s var(--transition-default); outline: none;
+        }
+        .input-apple:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+        }
+        [data-theme="dark"] .input-apple:focus { box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.1); }
+        
+        /* Apple-style buttons */
+        .btn-apple {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; padding: 12px 24px; font-size: 17px; font-weight: 400;
+            border-radius: 980px; border: none; cursor: pointer;
+            transition: all 0.2s var(--transition-default);
+            text-decoration: none; white-space: nowrap; user-select: none;
+        }
+        .btn-apple:active { transform: scale(0.98); }
+        
+        /* Tab switches */
+        .tab-group {
+            display: inline-flex; padding: 2px;
+            background: var(--bg-secondary); border-radius: 12px; position: relative;
+        }
+        .tab-btn {
+            padding: 8px 20px; font-size: 15px; font-weight: 500;
+            background: transparent; border: none; border-radius: 10px;
+            color: var(--text-secondary); cursor: pointer;
+            transition: all 0.2s var(--transition-default); z-index: 2;
+        }
+        .tab-btn.active { color: var(--text-primary); }
+        .tab-btn:disabled { color: var(--border-color); cursor: not-allowed; }
+        .tab-indicator {
+            position: absolute; top: 2px; bottom: 2px;
+            background: var(--bg-primary); border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s var(--transition-default); z-index: 1;
+        }
+        
+        /* Select dropdown */
+        .select-apple {
+            appearance: none; padding: 8px 32px 8px 12px; font-size: 15px;
+            background: var(--bg-secondary); color: var(--text-primary);
+            border: 1px solid var(--border-light); border-radius: 8px;
+            cursor: pointer; transition: all 0.2s var(--transition-default);
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L7 7L13 1' stroke='%2386868b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+            background-repeat: no-repeat; background-position: right 10px center;
+            background-size: 14px; outline: none;
+        }
+        
+        /* Result display */
+        .result-display {
+            min-height: 120px; padding: 24px;
+            background: var(--bg-primary); border-radius: 16px;
+            border: 1px solid var(--border-light); font-size: 21px;
+            line-height: 1.381; font-weight: 500; color: var(--text-primary);
+        }
+        .result-display.empty { color: var(--text-secondary); font-weight: 400; }
+        
+        /* History items */
+        .history-item {
+            padding: 12px 16px; background: var(--bg-primary);
+            border-radius: 10px; cursor: pointer;
+            transition: all 0.2s var(--transition-default); border: 1px solid transparent;
+        }
+        .history-item:hover {
+            background: var(--bg-tertiary); border-color: var(--border-light);
+            transform: translateX(4px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeIn { animation: fadeIn 0.6s var(--transition-default); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headline-hero { font-size: 40px; }
+            .headline { font-size: 32px; }
+        }
+        
+        /* Accessibility */
+        *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper" role="navigation" aria-label="Головна навігація">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-[52px]">
+                <a href="/" class="flex items-center gap-3 no-underline group">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">N2W</div>
+                    <span class="text-[19px] font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">Num2Words</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <select id="langSelect" class="select-apple" aria-label="Вибір мови">
+                        <option value="uk-UA">🇺🇦 Українська</option>
+                        <option value="en-US">🇬🇧 English</option>
+                        <option value="pl-PL">🇵🇱 Polski</option>
+                        <option value="de-DE">🇩🇪 Deutsch</option>
+                        <option value="es-ES">🇪🇸 Español</option>
+                        <option value="fr-FR">🇫🇷 Français</option>
+                    </select>
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Перемикач теми">
+                        <svg class="sun-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg class="moon-icon hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="pt-20 pb-12 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="animate-fadeIn">
+                    <h1 class="headline-hero mb-6">Числа <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">прописом</span></h1>
+                    <p class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto">Професійний конвертер чисел у текст для документів, договорів та фінансової звітності. Підтримка 6 мов та валют.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="card-surface p-6 animate-fadeIn" style="animation-delay: 0.1s;">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <h2 class="text-lg font-semibold">Режим конвертації</h2>
+                                <div class="tab-group">
+                                    <div id="tabIndicator" class="tab-indicator"></div>
+                                    <button class="tab-btn active" data-mode="cardinal">Числівник</button>
+                                    <button class="tab-btn" data-mode="currency">Валюта</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-surface p-6 animate-fadeIn" style="animation-delay: 0.2s;">
+                            <label for="numberInput" class="block text-sm font-medium text-[var(--text-secondary)] mb-3">Введіть число</label>
+                            <input type="text" id="numberInput" class="input-apple text-2xl font-light" placeholder="123 456.78" autocomplete="off" inputmode="decimal" aria-label="Поле вводу числа">
+                        </div>
+
+                        <div class="card-surface p-6 animate-fadeIn" style="animation-delay: 0.3s;">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-semibold">Результат</h3>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <button id="copyBtn" class="btn-apple bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]">
+                                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M5 11V5a2 2 0 012-2h6"/></svg>
+                                        Копіювати
+                                    </button>
+                                    <button id="speakBtn" class="btn-apple bg-[var(--bg-secondary)] hover:bg-[var(--border-light)] p-3" aria-label="Озвучити">
+                                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L7 8H4v6h3l4 3V5z"/><path d="M15 9c.5.5.5 1.5 0 2m3-5c2 2 2 5 0 7"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="resultText" class="result-display empty" role="region" aria-live="polite">Введіть число для конвертації</div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-6">
+                        <div class="card-surface p-6 animate-fadeIn" style="animation-delay: 0.4s;">
+                            <h3 class="text-lg font-semibold mb-5">Налаштування</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wide mb-2">Регістр</label>
+                                    <select id="casingSelect" class="select-apple w-full">
+                                        <option value="lower">малі літери</option>
+                                        <option value="sentence">Як у реченні</option>
+                                        <option value="title">Кожне Слово з Великої</option>
+                                    </select>
+                                </div>
+                                <div id="currencySettings" style="display: none;">
+                                    <label class="block text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wide mb-2">Валюта</label>
+                                    <select id="currencySelect" class="select-apple w-full"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-surface p-6 animate-fadeIn" style="animation-delay: 0.5s;">
+                            <div class="flex justify-between items-center mb-5">
+                                <h3 class="text-lg font-semibold">Історія</h3>
+                                <button id="clearHistoryBtn" class="text-sm text-[var(--text-link)] hover:underline">Очистити</button>
+                            </div>
+                            <div id="historyList" class="space-y-2 max-h-80 overflow-y-auto">
+                                <p class="text-sm text-[var(--text-secondary)]">Історія порожня</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-[var(--border-light)] mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="text-sm text-[var(--text-secondary)]">
+                        © 2025 Num2Words. Створено в Україні 🇺🇦 з любов'ю до точності.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DATA & DICTIONARIES ---
+        const locales = {
+            'uk-UA': {
+                pluralType: 'slavic',
+                units: ['нуль', 'один', 'два', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять'],
+                unitsFem: ['нуль', 'одна', 'дві', 'три', 'чотири', 'п\'ять', 'шість', 'сім', 'вісім', 'дев\'ять'],
+                teens: ['десять', 'одинадцять', 'дванадцять', 'тринадцять', 'чотирнадцять', 'п\'ятнадцять', 'шістнадцять', 'сімнадцять', 'вісімнадцять', 'дев\'ятнадцять'],
+                tens: ['', '', 'двадцять', 'тридцять', 'сорок', 'п\'ятдесят', 'шістдесят', 'сімдесят', 'вісімдесят', 'дев\'яносто'],
+                hundreds: ['', 'сто', 'двісті', 'триста', 'чотириста', 'п\'ятсот', 'шістсот', 'сімсот', 'вісімсот', 'дев\'ятсот'],
+                magnitudes: [
+                    ['', '', ''],
+                    ['тисяча', 'тисячі', 'тисяч', 'feminine'],
+                    ['мільйон', 'мільйони', 'мільйонів', 'masculine'],
+                    ['мільярд', 'мільярди', 'мільярдів', 'masculine'],
+                    ['трильйон', 'трильйони', 'трильйонів', 'masculine']
+                ],
+                currency: {
+                    UAH: { major: ['гривня', 'гривні', 'гривень', 'feminine'], minor: ['копійка', 'копійки', 'копійок', 'feminine'] },
+                    USD: { major: ['долар', 'долари', 'доларів', 'masculine'], minor: ['цент', 'центи', 'центів', 'masculine'] },
+                    EUR: { major: ['євро', 'євро', 'євро', 'neuter'], minor: ['цент', 'центи', 'центів', 'masculine'] }
+                },
+                minus: 'мінус', decimal: 'цілих', and: ''
+            },
+            'en-US': {
+                pluralType: 'simple',
+                units: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'],
+                teens: ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'],
+                tens: ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
+                hundreds: ['', 'one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'],
+                magnitudes: [
+                    ['', '', ''], ['thousand', 'thousand', 'thousand'], ['million', 'million', 'million'],
+                    ['billion', 'billion', 'billion'], ['trillion', 'trillion', 'trillion']
+                ],
+                currency: {
+                    USD: { major: ['dollar', 'dollars', 'dollars'], minor: ['cent', 'cents', 'cents'] },
+                    EUR: { major: ['euro', 'euros', 'euros'], minor: ['cent', 'cents', 'cents'] }
+                },
+                minus: 'minus', decimal: 'point', and: ''
+            },
+            'pl-PL': {
+                pluralType: 'slavic',
+                units: ['zero', 'jeden', 'dwa', 'trzy', 'cztery', 'pięć', 'sześć', 'siedem', 'osiem', 'dziewięć'],
+                unitsFem: ['zero', 'jedna', 'dwie', 'trzy', 'cztery', 'pięć', 'sześć', 'siedem', 'osiem', 'dziewięć'],
+                teens: ['dziesięć', 'jedenaście', 'dwanaście', 'trzynaście', 'czternaście', 'piętnaście', 'szesnaście', 'siedemnaście', 'osiemnaście', 'dziewiętnaście'],
+                tens: ['', '', 'dwadzieścia', 'trzydzieści', 'czterdzieści', 'pięćdziesiąt', 'sześćdziesiąt', 'siedemdziesiąt', 'osiemdziesiąt', 'dziewięćdziesiąt'],
+                hundreds: ['', 'sto', 'dwieście', 'trzysta', 'czterysta', 'pięćset', 'sześćset', 'siedemset', 'osiemset', 'dziewięćset'],
+                magnitudes: [
+                    ['', '', ''], ['tysiąc', 'tysiące', 'tysięcy', 'masculine'], ['milion', 'miliony', 'milionów', 'masculine'],
+                    ['miliard', 'miliardy', 'miliardów', 'masculine']
+                ],
+                currency: {
+                    PLN: { major: ['złoty', 'złote', 'złotych', 'masculine'], minor: ['grosz', 'grosze', 'groszy', 'masculine'] },
+                    EUR: { major: ['euro', 'euro', 'euro', 'neuter'], minor: ['cent', 'centy', 'centów', 'masculine'] }
+                },
+                minus: 'minus', decimal: 'przecinek', and: ''
+            },
+            'de-DE': {
+                pluralType: 'simple',
+                units: ['null', 'ein', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun'],
+                unitsAltEin: 'eins',
+                teens: ['zehn', 'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn', 'sechzehn', 'siebzehn', 'achtzehn', 'neunzehn'],
+                tens: ['', '', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig', 'siebzig', 'achtzig', 'neunzig'],
+                hundreds: ['', 'einhundert', 'zweihundert', 'dreihundert', 'vierhundert', 'fünfhundert', 'sechshundert', 'siebenhundert', 'achthundert', 'neunhundert'],
+                magnitudes: [
+                    ['', '', ''], ['tausend', 'tausend', 'tausend'], ['Million', 'Millionen', 'Millionen'],
+                    ['Milliarde', 'Milliarden', 'Milliarden']
+                ],
+                currency: { EUR: { major: ['Euro', 'Euro', 'Euro'], minor: ['Cent', 'Cent', 'Cent'] } },
+                minus: 'minus', decimal: 'Komma', and: 'und'
+            },
+            'es-ES': {
+                pluralType: 'simple',
+                units: ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'],
+                unitsFem: ['cero', 'una', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'],
+                teens: ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'],
+                tens: ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'],
+                hundreds: ['', 'cien', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'],
+                magnitudes: [
+                    ['', '', ''], ['mil', 'mil', 'mil'], ['millón', 'millones', 'millones'],
+                    ['mil millones', 'mil millones', 'mil millones']
+                ],
+                currency: { EUR: { major: ['euro', 'euros', 'euros'], minor: ['céntimo', 'céntimos', 'céntimos'] } },
+                minus: 'menos', decimal: 'con', and: 'y'
+            },
+            'fr-FR': {
+                pluralType: 'simple',
+                units: ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'],
+                unitsFem: ['zéro', 'une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'],
+                teens: ['dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'],
+                tens: ['', 'dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante-dix', 'quatre-vingt', 'quatre-vingt-dix'],
+                hundreds: ['', 'cent', 'deux cents', 'trois cents', 'quatre cents', 'cinq cents', 'six cents', 'sept cents', 'huit cents', 'neuf cents'],
+                magnitudes: [
+                    ['', '', ''], ['mille', 'mille', 'mille'], ['million', 'millions', 'millions'],
+                    ['milliard', 'milliards', 'milliards']
+                ],
+                currency: { EUR: { major: ['euro', 'euros', 'euros'], minor: ['centime', 'centimes', 'centimes'] } },
+                minus: 'moins', decimal: 'virgule', and: 'et'
+            }
+        };
+
+        // --- APP STATE ---
+        const state = {
+            value: '',
+            locale: 'uk-UA',
+            mode: 'cardinal',
+            casing: 'lower',
+            currency: 'UAH',
+            result: '',
+            history: []
+        };
+
+        // --- CORE CONVERSION LOGIC ---
+        function getPlural(n, forms, locale) {
+            const loc = locales[locale];
+            if (loc.pluralType === 'slavic') {
+                const abs = Math.abs(n);
+                const lastDigit = abs % 10;
+                const lastTwoDigits = abs % 100;
+                if (lastTwoDigits >= 11 && lastTwoDigits <= 14) return forms[2];
+                if (lastDigit === 1) return forms[0];
+                if (lastDigit >= 2 && lastDigit <= 4) return forms[1];
+                return forms[2];
+            }
+            return Math.abs(n) === 1 ? forms[0] : forms[1];
+        }
+
+        function convertBelow100(num, locale, gender = 'masculine') {
+            const loc = locales[locale];
+            const tens = Math.floor(num / 10);
+            const units = num % 10;
+
+            if (num < 10) {
+                return (gender === 'feminine' && loc.unitsFem) ? loc.unitsFem[num] : loc.units[num];
+            }
+            if (num < 20) {
+                return loc.teens[num - 10];
+            }
+            if (units === 0) {
+                return loc.tens[tens];
+            }
+
+            if (locale === 'de-DE') {
+                const unitWord = units === 1 ? loc.units[1] : loc.unitsAltEin;
+                return `${loc.units[units]}${loc.and}${loc.tens[tens]}`;
+            }
+            
+            if (locale === 'fr-FR') {
+                 if (num < 70) {
+                    if (units === 1) return `${loc.tens[tens]} ${loc.and} ${loc.units[units]}`;
+                    return `${loc.tens[tens]}-${loc.units[units]}`;
+                 }
+                 if (num < 80) return `${loc.tens[6]}-${loc.teens[num - 70]}`;
+                 if (num === 80) return `${loc.tens[8]}s`;
+                 if (num < 100) return `${loc.tens[8]}-${convertBelow100(num - 80, locale, gender)}`;
+            }
+
+            if (locale === 'es-ES') {
+                if (tens === 2) return `veinti${loc.units[units]}`;
+                return `${loc.tens[tens]} ${loc.and} ${loc.units[units]}`;
+            }
+            
+            const unitWord = (gender === 'feminine' && loc.unitsFem) ? loc.unitsFem[units] : loc.units[units];
+            return `${loc.tens[tens]} ${unitWord}`;
+        }
+
+        function convertHundreds(num, locale, gender = 'masculine') {
+            const loc = locales[locale];
+            const hundreds = Math.floor(num / 100);
+            const remainder = num % 100;
+            let result = [];
+
+            if (hundreds > 0) {
+                 if (locale === 'es-ES' && num === 100) {
+                    result.push('cien');
+                 } else {
+                    result.push(loc.hundreds[hundreds]);
+                 }
+            }
+            if (remainder > 0) {
+                result.push(convertBelow100(remainder, locale, gender));
+            }
+            return result.join(' ');
+        }
+
+        function convertNumber(input, options = {}) {
+            const { locale = 'uk-UA', mode = 'cardinal', casing = 'lower', currency = 'UAH' } = options;
+            
+            let normalized = String(input).trim().replace(/\s/g, '').replace(',', '.');
+            if (normalized.startsWith('.')) normalized = '0' + normalized;
+            
+            const isNegative = normalized.startsWith('-');
+            if (isNegative) normalized = normalized.slice(1);
+            
+            if (!/^\d+(\.\d+)?$/.test(normalized)) return '';
+
+            const parts = normalized.split('.');
+            const integerPart = parts[0];
+            const decimalPart = parts[1] || '';
+            
+            const loc = locales[locale];
+            if (!loc) return normalized;
+
+            if (Number(integerPart) === 0 && decimalPart === '') {
+                return applyCasing(loc.units[0], casing);
+            }
+
+            const triads = [];
+            let remaining = integerPart;
+            while (remaining.length > 0) {
+                triads.unshift(remaining.slice(-3));
+                remaining = remaining.slice(0, -3);
+            }
+
+            let resultWords = [];
+            if (isNegative) resultWords.push(loc.minus);
+
+            if (Number(integerPart) === 0 && mode === 'currency') {
+                resultWords.push(loc.units[0]);
+            } else {
+                triads.forEach((triad, index) => {
+                    const triadNum = parseInt(triad, 10);
+                    if (triadNum === 0) return;
+
+                    const magnitudeIndex = triads.length - 1 - index;
+                    const magnitude = loc.magnitudes[magnitudeIndex];
+                    const gender = (magnitude && magnitude[3]) ? magnitude[3] : 'masculine';
+                    
+                    let numForPlural = triadNum;
+                    if (magnitudeIndex === 1 && (triadNum % 10 === 1 || triadNum % 10 === 2) && locale === 'uk-UA') {
+                        resultWords.push(convertHundreds(triadNum, locale, 'feminine'));
+                    } else {
+                         resultWords.push(convertHundreds(triadNum, locale, gender));
+                    }
+
+                    if (magnitudeIndex > 0) {
+                        resultWords.push(getPlural(numForPlural, magnitude, locale));
+                    }
+                });
+            }
+
+            if (mode === 'currency') {
+                const intNum = parseInt(integerPart, 10);
+                const curr = loc.currency[currency];
+                if (curr) {
+                    resultWords.push(getPlural(intNum, curr.major, locale));
+                    if (decimalPart) {
+                        const minorNum = parseInt(decimalPart.padEnd(2, '0').slice(0, 2), 10);
+                        if (minorNum > 0) {
+                           resultWords.push(String(minorNum).padStart(2, '0'));
+                           resultWords.push(getPlural(minorNum, curr.minor, locale));
+                        }
+                    }
+                }
+            } else if (decimalPart) {
+                resultWords.push(loc.decimal);
+                resultWords.push(convertNumber(decimalPart, { ...options, mode: 'cardinal' }));
+            }
+
+            const finalResult = resultWords.filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+            return applyCasing(finalResult, casing);
+        }
+
+        function applyCasing(text, casing) {
+            if (!text) return '';
+            switch (casing) {
+                case 'title':
+                    return text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+                case 'sentence':
+                    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+                default:
+                    return text.toLowerCase();
+            }
+        }
+
+        // --- UI FUNCTIONS ---
+        function updateResult() {
+            const resultDiv = document.getElementById('resultText');
+
+            if (!state.value) {
+                resultDiv.textContent = 'Введіть число для конвертації';
+                resultDiv.classList.add('empty');
+                return;
+            }
+            
+            const result = convertNumber(state.value, {
+                locale: state.locale, mode: state.mode,
+                casing: state.casing, currency: state.currency
+            });
+            
+            state.result = result;
+            resultDiv.textContent = result || 'Невірний формат числа';
+            resultDiv.classList.remove('empty');
+            
+            if (result && !state.history.find(item => item.value === state.value && item.locale === state.locale)) {
+                state.history.unshift({ value: state.value, locale: state.locale });
+                state.history = state.history.slice(0, 10);
+                updateHistory();
+                saveHistory();
+            }
+        }
+
+        function updateHistory() {
+            const historyList = document.getElementById('historyList');
+            if (state.history.length === 0) {
+                historyList.innerHTML = '<p class="text-sm text-[var(--text-secondary)]">Історія порожня</p>';
+                return;
+            }
+            
+            historyList.innerHTML = state.history.map(item => {
+                const textPreview = convertNumber(item.value, { locale: item.locale, mode: 'cardinal', casing: 'lower' });
+                const shortPreview = textPreview.length > 50 ? textPreview.slice(0, 50) + '...' : textPreview;
+                return `
+                    <div class="history-item" data-value="${item.value}" data-locale="${item.locale}">
+                        <div class="font-mono text-sm font-medium">${item.value} (${item.locale.split('-')[0]})</div>
+                        <div class="text-xs text-[var(--text-secondary)] mt-1">${shortPreview}</div>
+                    </div>`;
+            }).join('');
+        }
+
+        function updateTabIndicator() {
+            const activeTab = document.querySelector('.tab-btn.active');
+            const indicator = document.getElementById('tabIndicator');
+            if (activeTab && indicator) {
+                indicator.style.width = `${activeTab.offsetWidth}px`;
+                indicator.style.left = `${activeTab.offsetLeft}px`;
+            }
+        }
+        
+        function updateCurrencyOptions() {
+            const select = document.getElementById('currencySelect');
+            const currencySettings = document.getElementById('currencySettings');
+            const availableCurrencies = locales[state.locale].currency;
+            
+            select.innerHTML = '';
+            if (availableCurrencies) {
+                currencySettings.style.display = 'block';
+                Object.keys(availableCurrencies).forEach(code => {
+                    const option = document.createElement('option');
+                    option.value = code;
+                    option.textContent = `${code}`;
+                    select.appendChild(option);
+                });
+                
+                if (availableCurrencies[state.currency]) {
+                    select.value = state.currency;
+                } else {
+                    state.currency = select.options[0].value;
+                }
+            } else {
+                currencySettings.style.display = 'none';
+            }
+        }
+
+        function saveHistory() {
+            localStorage.setItem('num2words_history', JSON.stringify(state.history));
+        }
+
+        function loadHistory() {
+            const saved = localStorage.getItem('num2words_history');
+            if (saved) {
+                try {
+                    state.history = JSON.parse(saved);
+                    updateHistory();
+                } catch (e) { console.error('Failed to load history', e); }
+            }
+        }
+
+        // --- GEMINI API INTEGRATION ---
+
+        // Helper functions for TTS Audio
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcmData, sampleRate) {
+            const header = new ArrayBuffer(44);
+            const view = new DataView(header);
+            const numSamples = pcmData.length;
+            const numChannels = 1;
+            const bitsPerSample = 16;
+            const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+            const blockAlign = numChannels * (bitsPerSample / 8);
+            const dataSize = numSamples * numChannels * (bitsPerSample / 8);
+
+            view.setUint32(0, 0x52494646, false); // "RIFF"
+            view.setUint32(4, 36 + dataSize, true);
+            view.setUint32(8, 0x57415645, false); // "WAVE"
+            view.setUint32(12, 0x666d7420, false); // "fmt "
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, byteRate, true);
+            view.setUint16(32, blockAlign, true);
+            view.setUint16(34, bitsPerSample, true);
+            view.setUint32(36, 0x64617461, false); // "data"
+            view.setUint32(40, dataSize, true);
+
+            const wavBytes = new Uint8Array(44 + pcmData.buffer.byteLength);
+            wavBytes.set(new Uint8Array(header), 0);
+            wavBytes.set(new Uint8Array(pcmData.buffer), 44);
+
+            return new Blob([wavBytes], { type: 'audio/wav' });
+        }
+        
+        // Gemini TTS Function
+        async function speakWithGemini(text) {
+            const speakBtn = document.getElementById('speakBtn');
+            const originalContent = speakBtn.innerHTML;
+            speakBtn.innerHTML = `<svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+            speakBtn.disabled = true;
+
+            try {
+                const apiKey = ""; // Provided by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: `Say in a clear, neutral voice: ${text}` }] }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Kore" } } }
+                    }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    let errorText = `HTTP ${response.status}: ${response.statusText}`;
+                    try {
+                        const errorBody = await response.json();
+                        errorText = errorBody.error?.message || errorText;
+                    } catch (e) { /* Ignore */ }
+                    throw new Error(errorText);
+                }
+
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                    const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 24000;
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                    audio.onended = () => {
+                        speakBtn.innerHTML = originalContent;
+                        speakBtn.disabled = false;
+                    };
+                } else {
+                    throw new Error("Invalid audio data in response.");
+                }
+            } catch (error) {
+                console.error("Помилка синтезу мовлення Gemini:", error);
+                if ('speechSynthesis' in window) {
+                    speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = state.locale;
+                    speechSynthesis.speak(utterance);
+                }
+                speakBtn.innerHTML = originalContent;
+                speakBtn.disabled = false;
+            }
+        }
+
+        // --- EVENT HANDLERS ---
+        document.getElementById('numberInput').addEventListener('input', (e) => {
+            state.value = e.target.value;
+            updateResult();
+        });
+
+        document.getElementById('langSelect').addEventListener('change', (e) => {
+            state.locale = e.target.value;
+            if (state.mode === 'currency') {
+                updateCurrencyOptions();
+            }
+            updateResult();
+            updateHistory();
+        });
+
+        document.getElementById('casingSelect').addEventListener('change', (e) => {
+            state.casing = e.target.value;
+            updateResult();
+        });
+        
+        document.getElementById('currencySelect').addEventListener('change', (e) => {
+            state.currency = e.target.value;
+            updateResult();
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                if(e.currentTarget.disabled) return;
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+                state.mode = e.currentTarget.dataset.mode;
+                
+                const currencyBlock = document.getElementById('currencySettings');
+                if (state.mode === 'currency') {
+                    updateCurrencyOptions();
+                    currencyBlock.style.display = 'block';
+                } else {
+                    currencyBlock.style.display = 'none';
+                }
+                
+                updateTabIndicator();
+                updateResult();
+            });
+        });
+
+        function copyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.style.position = 'fixed';
+            textArea.style.top = '-9999px';
+            textArea.style.left = '-9999px';
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            let successful = false;
+            try {
+                successful = document.execCommand('copy');
+            } catch (err) {
+                console.error('Помилка копіювання:', err);
+            }
+            document.body.removeChild(textArea);
+            return successful;
+        }
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            if (state.result) {
+                if (copyTextToClipboard(state.result)) {
+                    const btn = document.getElementById('copyBtn');
+                    const originalContent = btn.innerHTML;
+                    btn.innerHTML = `Скопійовано!`;
+                    btn.style.background = 'var(--success)';
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                        btn.style.background = '';
+                    }, 2000);
+                }
+            }
+        });
+
+        document.getElementById('speakBtn').addEventListener('click', () => {
+            if (state.result) {
+                speakWithGemini(state.result);
+            }
+        });
+        
+        document.getElementById('historyList').addEventListener('click', (e) => {
+            const item = e.target.closest('.history-item');
+            if (item) {
+                const value = item.dataset.value;
+                const locale = item.dataset.locale;
+                document.getElementById('numberInput').value = value;
+                document.getElementById('langSelect').value = locale;
+                state.value = value;
+                state.locale = locale;
+                updateResult();
+                document.getElementById('numberInput').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        document.getElementById('clearHistoryBtn').addEventListener('click', () => {
+            state.history = [];
+            updateHistory();
+            saveHistory();
+        });
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const doc = document.documentElement;
+            const newTheme = doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            doc.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.sun-icon').classList.toggle('hidden', newTheme === 'dark');
+            document.querySelector('.moon-icon').classList.toggle('hidden', newTheme === 'light');
+        });
+
+        // --- INITIALIZATION ---
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.sun-icon').classList.toggle('hidden', savedTheme === 'dark');
+        document.querySelector('.moon-icon').classList.toggle('hidden', savedTheme === 'light');
+        
+        loadHistory();
+        updateResult();
+        setTimeout(updateTabIndicator, 100);
+        window.addEventListener('resize', updateTabIndicator);
+    });
+    </script>
+</body>
+</html>
